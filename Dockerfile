@@ -1,4 +1,13 @@
-FROM nginx
+FROM ubuntu
 MAINTAINER shubhamlohar55
-WORKDIR /usr/share/nginx/html
-RUN echo "This is about page created for testing purpose! Shubham Lohar" > about.html
+RUN apt update -y
+RUN apt install nginx -y
+WORKDIR /var/www/html
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page288/global.zip .
+RUN apt update -y
+RUN apt install -y unzip
+RUN unzip global.zip
+RUN cp -rvf html/* .
+RUN rm -rf html foste.zip
+CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80
