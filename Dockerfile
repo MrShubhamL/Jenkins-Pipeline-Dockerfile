@@ -1,4 +1,4 @@
 FROM nginx
 MAINTAINER shubhamlohar55
-WORKDIR /var/www/html
+WORKDIR /usr/share/nginx/html
 RUN echo "This is about page created for testing purpose!" > about.html
